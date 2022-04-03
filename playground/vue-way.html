@@ -18,7 +18,10 @@
       //정의할 내용 
     //}) //객체의 동작을 재정의
 
-    Object.defineProperty(viewModel, 'str', {
+    //즉시 실행 함수
+    (function() {
+      function init() {
+      Object.defineProperty(viewModel, 'str', {
       //속성에 접근 햇을때의 동작을 정의
       get : function() {
         console.log('접근')
@@ -26,10 +29,18 @@
 
       // 속성에 값을 할당했을 떄의 동작을 정의
       set : function(newValue) {
-        console.log('할당', newValue);
-        div.innerHTML = newValue;
+        render(newValue);
       },
     })
+    }
+
+    function render(value) {
+      div.innerHTML = value;
+    }
+
+    init();
+    })();
+
 
 
   </script>
