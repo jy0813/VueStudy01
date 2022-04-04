@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{num}}</p>
+      <p>{{doubleNum}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          num: 10,
+        },
+        computed: {
+          //Validation, text 연산 쪽
+          doubleNum: function () {
+            return this.num * 2;
+          },
+        },
+        watch: {
+          // data 요청에 적합
+          // newValue = 갱신된 값 , oldValue= 이전 값
+          num: function (newValue, oldValue) {
+            this.fetchUserByNumber(newValue);
+          },
+        },
+        methods: {
+          fetchUserByNumber: function (num) {
+            console.log(num);
+            // axios.get(num);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
