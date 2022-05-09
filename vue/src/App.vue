@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <AppHeader></AppHeader>
-    <div>{{ str }}</div>
+    <AppHeader :headerName="str"></AppHeader>
   </div>
 </template>
 
@@ -15,7 +14,7 @@ export default {
   },
   data() {
     return {
-      str: "hi",
+      str: "헤더입니다",
     };
   },
 };

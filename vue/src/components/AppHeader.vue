@@ -1,12 +1,15 @@
 <template>
   <header>
-    <h1>헤더</h1>
+    <h1>{{ headerName }}</h1>
   </header>
 </template>
 
 <script>
 export default {
   name: "AppHeader",
+  props: {
+    headerName: String,
+  },
 };
 </script>
 
