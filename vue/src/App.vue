@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppHeader :headerName="str"></AppHeader>
+    <AppHeader :headerName="str" @renew="renewStr"></AppHeader>
   </div>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     return {
       str: "헤더입니다",
     };
+  },
+  methods: {
+    renewStr: function () {
+      this.str = "hi";
+    },
   },
 };
 </script>
